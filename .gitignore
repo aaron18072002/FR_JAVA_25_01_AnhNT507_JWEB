@@ -1,0 +1,36 @@
+# Bỏ qua toàn bộ thư mục .metadata ở cấp gốc
+/.metadata/
+
+# Bỏ qua các thư mục và tệp của Tomcat trong thư mục Servers
+/Servers/logs/
+/Servers/work/
+/Servers/temp/
+/Servers/*.log
+/Servers/*.war
+
+# Bỏ qua thư mục và tệp biên dịch của tất cả các project
+/*/bin/
+/*/target/
+/*/build/
+
+# Bỏ qua các tệp cấu hình của Eclipse, IntelliJ, NetBeans
+/*/.settings/
+/*/.project
+/*/.classpath
+/*/.idea/
+/*/.vscode/
+/*/.metadata
+/*/*.iml
+/*/nbproject/
+
+# Bỏ qua các tệp tạm thời và hệ thống
+/*/*.swp
+/*/tmp/
+/*/.DS_Store
+
+# Bỏ qua các tệp cấu hình không cần thiết của Maven hoặc Gradle
+/*/.mvn/
+/*/*.jar
+
+# Bỏ qua các tệp cấu hình tài khoản người dùng
+/*/.env
