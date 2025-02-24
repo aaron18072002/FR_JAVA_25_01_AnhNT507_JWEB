@@ -30,8 +30,13 @@
         <property name="hibernate.c3p0.idle_test_period">3000</property>
 
         <!-- Cấu hình Entity -->
-       <!-- <mapping class="com.coding.persistence.Content"/>
-        <mapping class="com.coding.persistence.Member"/>-->
+        <mapping class="com.coding.persistence.Answer"/>
+       	<mapping class="com.coding.persistence.AnswerUser"/>
+       	<mapping class="com.coding.persistence.Poll"/>
+       	<mapping class="com.coding.persistence.PollQuestion"/>
+       	<mapping class="com.coding.persistence.Question"/>
+       	<mapping class="com.coding.persistence.QuestionAnswer"/>
+       	<mapping class="com.coding.persistence.User"/>
 
     </session-factory>
 </hibernate-configuration>
