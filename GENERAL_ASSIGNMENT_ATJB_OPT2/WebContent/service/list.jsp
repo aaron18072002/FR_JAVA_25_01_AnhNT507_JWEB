@@ -12,24 +12,30 @@
 <link rel="stylesheet"
 	href="<%=request.getContextPath()%>/assets/css/style.css">
 <link rel="stylesheet"
-	href="<%=request.getContextPath()%>/assets/fontawesome/css/all.min.css">
+	href="<%=request.getContextPath()%>/assets/fontawesome/css/all.css">
 <script src="<%=request.getContextPath()%>/assets/js/bootstrap.min.js"></script>
 <title>Insert title here</title>
 </head>
 <body>
-	<%String errorDelete = (String) request.getAttribute("errorDelete"); %>
+	<%
+	String errorDelete = (String) request.getAttribute("errorDelete");
+	%>
 
-	<%int currentRecord = (int)request.getAttribute("currentRecord"); %>
+	<%
+	int currentRecord = (int) request.getAttribute("currentRecord");
+	%>
 
 	<%
 	long total = (long) request.getAttribute("total");
 	%>
 
 	<%
-		if(errorDelete!=null){
+	if (errorDelete != null) {
 	%>
-	<p class="text-danger font-weight-bold"><%= errorDelete %></p>
-	<%} %>
+	<p class="text-danger font-weight-bold"><%=errorDelete%></p>
+	<%
+	}
+	%>
 
 	<jsp:include page="/common/header.jsp"></jsp:include>
 
@@ -135,7 +141,7 @@
 		<div
 			class="container d-flex align-items-center justify-content-between">
 			<p class="">
-				Showing <strong><%= currentRecord %></strong> out of <strong><%= total %></strong>
+				Showing <strong><%=currentRecord%></strong> out of <strong><%=total%></strong>
 				entries
 			</p>
 			<div>
@@ -166,7 +172,7 @@
 
 	<script>
 		function editService(serviceId){
-			window.location.href = '<%= request.getContextPath()%>/EditServiceServlet?serviceId=' + serviceId;
+			window.location.href = '<%=request.getContextPath()%>/EditServiceServlet?serviceId=' + serviceId;
 		}
 		
 		let serviceId = null;
@@ -180,22 +186,28 @@
 		 $(document).ready(function () {
  $("#confirmDelete").click(function(event){
 			 if(serviceId){
-				 window.location.href =  '<%= request.getContextPath() %>/DeleteServiceServlet?serviceId=' + serviceId;
-			 }else{
-				 event.preventDefault();
-			 }
-		 });
+				 window.location.href =  '<%=request.getContextPath()%>
+		/DeleteServiceServlet?serviceId='
+															+ serviceId;
+												} else {
+													event.preventDefault();
+												}
+											});
 
-		        $(document).on("click", ".edit-button", function () {
-		            let serviceId = $(this).data("id");
-		            editService(serviceId);
-		        });
+							$(document).on("click", ".edit-button", function() {
+								let serviceId = $(this).data("id");
+								editService(serviceId);
+							});
 
-		        $(document).on("click", ".delete-button", function () {
-		            let serviceIdToDelete = $(this).data("id");
-		            setIdToDelete(computerIdToDelete);
-		        });
-		    });
+							$(document).on(
+									"click",
+									".delete-button",
+									function() {
+										let serviceIdToDelete = $(this).data(
+												"id");
+										setIdToDelete(computerIdToDelete);
+									});
+						});
 	</script>
 </body>
 </html>

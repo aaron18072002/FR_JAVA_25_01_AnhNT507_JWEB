@@ -151,10 +151,13 @@
 				<h5 style="margin: 0px">CMS</h5>
 			</div>
 			<div style="padding: 15px">
-				<div class="search-box">
-					<input type="text" placeholder="Search..."> <span
-						class="search-icon"><i class="fas fa-search"></i></span>
-				</div>
+				<form action="<%=request.getContextPath()%>/SearchContentServlet" method="GET" class="search-box">
+				    <input type="text" name="title" placeholder="Search...">
+				    <button type="submit" class="search-icon">
+				        <i class="fas fa-search"></i>
+				    </button>
+				</form>
+
 				<ul class="nav flex-column">
 					<li class="nav-item">
 						<a class="nav-link" href="<%=request.getContextPath()%>/ContentViewServlet"><i class="fas fa-th-list"></i> View contents</a>

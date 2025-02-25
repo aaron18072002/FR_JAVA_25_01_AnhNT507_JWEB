@@ -1,6 +1,7 @@
 package com.coding.dao.base;
 
 import java.util.function.Consumer;
+import java.util.function.Function;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -36,5 +37,22 @@ public class GenericDao {
 			transaction.rollback();
 		}
 	}
+	
+	protected <T> T executeWithResult(Function<Session, T> worker) {
+        Session session = openSession();
+        Transaction transaction = session.beginTransaction();
+        
+        try {
+            T result = worker.apply(session);
+            transaction.commit();
+            return result;
+        } catch (Exception e) {
+            e.printStackTrace();
+            transaction.rollback();
+            return null;
+        } finally {
+            session.close();
+        }
+    }
 	
 }

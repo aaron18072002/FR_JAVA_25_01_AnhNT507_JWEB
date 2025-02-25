@@ -10,7 +10,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.coding.dao.HibernateAnswerDao;
 import com.coding.dao.HibernatePollDao;
+import com.coding.dao.HibernateQuestionDao;
+import com.coding.dto.AnswerDTO;
 import com.coding.dto.ViewResultDTO;
 import com.coding.persistence.Poll;
 import com.coding.persistence.Question;
@@ -23,6 +26,8 @@ public class ViewResultServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	private final HibernatePollDao pollDao = new HibernatePollDao();
+	private final HibernateQuestionDao questionDao = new HibernateQuestionDao();
+	private final HibernateAnswerDao answerDao = new HibernateAnswerDao();
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -40,7 +45,13 @@ public class ViewResultServlet extends HttpServlet {
 		Poll poll = this.pollDao.getById(pollId);
 		
 		List<ViewResultDTO> results = new ArrayList<ViewResultDTO>();
-		List<Question> questions
+		List<Question> questions = this.questionDao.getByPollId(pollId);
+		for (Question question : questions) {
+			List<AnswerDTO> answers = new ArrayList<AnswerDTO>();
+			answers = this.answerDao.statistic(question.getId());
+			ViewResultDTO vrDto = new ViewResultDTO(question, answers);
+			results.add(vrDto);
+		}
 		
 		request.setAttribute("results", results);
 		request.setAttribute("pollName", poll.getText());
