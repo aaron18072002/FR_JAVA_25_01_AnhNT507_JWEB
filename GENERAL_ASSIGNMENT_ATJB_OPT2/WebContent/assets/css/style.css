@@ -1,0 +1,19 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.footer {
+    background-color: #f8f9fa;
+    padding: 10px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.fa-pen {
+    color: rgb(226, 194, 13);
+}
+
+.fa-trash {
+    color: #e2402b;
+    /* background-color: #f1ecec; */
+}

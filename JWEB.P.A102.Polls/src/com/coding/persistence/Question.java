@@ -36,14 +36,6 @@ public class Question {
 
 	}
 
-	public Question(Integer id, boolean isMultiple, boolean isRequired, String text) {
-		super();
-		this.id = id;
-		this.isMultiple = isMultiple;
-		this.isRequired = isRequired;
-		this.text = text;
-	}
-
 	public List<PollQuestion> getPollQuestions() {
 		return pollQuestions;
 	}

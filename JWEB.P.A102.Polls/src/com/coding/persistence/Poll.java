@@ -33,13 +33,6 @@ public class Poll {
 		
 	}
 
-	public Poll(Integer id, String status, String text) {
-		super();
-		this.id = id;
-		this.status = status;
-		this.text = text;
-	}
-
 	public List<PollQuestion> getPollQuestions() {
 		return pollQuestions;
 	}

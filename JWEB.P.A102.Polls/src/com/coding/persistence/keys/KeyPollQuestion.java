@@ -19,6 +19,11 @@ public class KeyPollQuestion implements Serializable {
 	public KeyPollQuestion() {
 		
 	}
+	
+	 public KeyPollQuestion(Integer pollId, Integer questionId) {
+	        this.pollId = pollId;
+	        this.questionId = questionId;
+	 }
 
 	public Integer getPollId() {
 		return pollId;

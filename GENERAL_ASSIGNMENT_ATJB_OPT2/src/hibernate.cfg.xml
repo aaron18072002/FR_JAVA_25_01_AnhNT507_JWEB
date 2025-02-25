@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC  
+    "-//Hibernate/Hibernate Configuration DTD 3.0//EN"  
+    "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+
+        <!-- Cấu hình kết nối SQL Server -->
+        <property name="hibernate.connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
+        <property name="hibernate.connection.url">
+            jdbc:sqlserver://THANHANH\SQLEXPRESS:1433;databaseName=JWEB.INTERNET;integratedSecurity=true;trustServerCertificate=true;
+        </property>
+
+        <!-- Dialect cho SQL Server -->
+        <property name="hibernate.dialect">org.hibernate.dialect.SQLServerDialect</property>
+
+        <!-- Cấu hình xác thực -->
+        <property name="hibernate.connection.integratedSecurity">true</property>
+
+        <!-- Hiển thị câu lệnh SQL -->
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.format_sql">true</property>
+
+        <!-- Pooling Connection -->
+        <property name="hibernate.c3p0.min_size">5</property>
+        <property name="hibernate.c3p0.max_size">20</property>
+        <property name="hibernate.c3p0.timeout">300</property>
+        <property name="hibernate.c3p0.max_statements">50</property>
+        <property name="hibernate.c3p0.idle_test_period">3000</property>
+
+        <!-- Cấu hình Entity -->
+        <mapping class="com.fa.training.entity.May"/>
+		<mapping class="com.fa.training.entity.KhachHang"/>
+		<mapping class="com.fa.training.entity.DichVu"/>
+		<mapping class="com.fa.training.entity.SuDungDichVu"/>
+		<mapping class="com.fa.training.entity.SuDungMay"/>
+
+    </session-factory>
+</hibernate-configuration>
